@@ -1,0 +1,728 @@
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background: #f0f2f5;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .header h1 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+        
+        .controls {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary {
+            background: #007bff;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #0056b3;
+        }
+        
+        .btn-primary:active {
+            background: #ff6b6b !important;
+        }
+        
+        .btn-success {
+            background: #28a745;
+            color: white;
+        }
+        
+        .btn-success:hover {
+            background: #1e7e34;
+        }
+        
+        .btn-success:active {
+            background: #ff6b6b !important;
+        }
+        
+        .btn-warning {
+            background: #ffc107;
+            color: #212529;
+        }
+        
+        .btn-warning:hover {
+            background: #e0a800;
+        }
+        
+        .btn-warning:active {
+            background: #ff6b6b !important;
+        }
+        
+        .btn-info {
+            background: #17a2b8;
+            color: white;
+        }
+        
+        .btn-info:hover {
+            background: #138496;
+        }
+        
+        .btn-info:active {
+            background: #ff6b6b !important;
+        }
+        
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+        }
+        
+        .btn-secondary:hover {
+            background: #545b62;
+        }
+        
+        .btn-small {
+            padding: 6px 12px;
+            font-size: 12px;
+            margin: 2px;
+        }
+        
+        .editor-area {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        /* 高级菜单栏样式 */
+        .advanced-menu {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border: 1px solid #dee2e6;
+        }
+        
+        .menu-section {
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .menu-section:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .menu-section h3 {
+            margin-bottom: 10px;
+            color: #495057;
+            font-size: 16px;
+        }
+        
+        .size-controls, .color-controls, .batch-controls, .coordinate-controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: center;
+        }
+        
+        .color-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: center;
+        }
+        
+        .size-controls label, .color-controls label {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 14px;
+        }
+        
+        .size-controls input[type="number"], .color-controls input[type="color"] {
+            padding: 4px 8px;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        
+        .coordinate-controls textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 12px;
+            resize: vertical;
+            user-select: auto;
+            -webkit-user-select: auto;
+            -moz-user-select: auto;
+            -ms-user-select: auto;
+        }
+        
+        .keyboard-container {
+            flex: 1;
+            min-width: 1200px;
+            background: #9ca3af;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 2px solid #6b7280;
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
+            background-image: linear-gradient(to bottom, #a6aeb8, #929aa5);
+            position: relative;
+            overflow-x: auto;
+            min-height: 500px;
+            width: 100%;
+            max-width: 1600px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        
+        .keyboard-row {
+            display: flex;
+            justify-content: flex-start;
+            margin-bottom: 12px;
+            min-width: max-content;
+        }
+        
+        .keyboard-key {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            margin: 2px;
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            border-radius: 5px;
+            cursor: move;
+            transition: all 0.05s ease;
+            font-weight: bold;
+            font-size: 12px;
+            padding: 0;
+            white-space: nowrap;
+            border: 2px solid #1a2530;
+            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.4);
+            position: relative;
+            user-select: none;
+            touch-action: none;
+        }
+        
+        /* 空格键特殊样式 - 修改背景为深蓝色，字体为白色 */
+        .keyboard-key.space-key {
+            width: 342px !important;
+            background: #2c3e50 !important;
+            border-color: #1a2530 !important;
+            color: white !important;
+        }
+        
+        /* Tab键特殊样式 - 增加22px宽度，修改背景为深蓝色，字体为白色 */
+        .keyboard-key.tab-key {
+            width: 68px !important;
+            background: #2c3e50 !important;
+            border-color: #1a2530 !important;
+            color: white !important;
+        }
+        
+        /* CapsLock键特殊样式 - 增加45px宽度，修改背景为深蓝色，字体为白色 */
+        .keyboard-key.capslock-key {
+            width: 91px !important;
+            background: #2c3e50 !important;
+            border-color: #1a2530 !important;
+            color: white !important;
+        }
+        
+        /* Shift键特殊样式 - 增加45px宽度，修改背景为深蓝色，字体为白色 */
+        .keyboard-key.shift-key {
+            width: 112px !important;
+            background: #2c3e50 !important;
+            border-color: #1a2530 !important;
+            color: white !important;
+        }
+        
+        /* 右Shift键特殊样式 - 缩减20px宽度（5px + 15px），修改背景为深蓝色，字体为白色 */
+        .keyboard-key.shift-right-key {
+            width: 92px !important;
+            background: #2c3e50 !important;
+            border-color: #1a2530 !important;
+            color: white !important;
+        }
+        
+        /* 回车键特殊样式 - 增加22px宽度（20px + 2px），修改背景为深蓝色 */
+        .keyboard-key.enter-key {
+            width: 67px !important;
+            background: #2c3e50 !important;
+            border-color: #1a2530 !important;
+        }
+        
+        /* Alt键特殊样式 - 修改背景为深蓝色，字体为白色 */
+        .keyboard-key.alt-key {
+            background: #2c3e50 !important;
+            border-color: #1a2530 !important;
+            color: white !important;
+        }
+        
+        /* Ctrl键特殊样式 - 修改背景为深蓝色，字体为白色 */
+        .keyboard-key.ctrl-key {
+            background: #2c3e50 !important;
+            border-color: #1a2530 !important;
+            color: white !important;
+        }
+        
+        /* Win键特殊样式 - 修改背景为深蓝色，字体为白色 */
+        .keyboard-key.win-key {
+            background: #2c3e50 !important;
+            border-color: #1a2530 !important;
+            color: white !important;
+        }
+        
+        /* Menu键特殊样式 - 修改背景为深蓝色，字体为白色 */
+        .keyboard-key.menu-key {
+            background: #2c3e50 !important;
+            border-color: #1a2530 !important;
+            color: white !important;
+        }
+        
+        /* Backspace键特殊样式 - 修改背景为深蓝色，字体为白色，宽度增加23px */
+        .keyboard-key.backspace-key {
+            width: 68px !important;
+            background: #2c3e50 !important;
+            border-color: #1a2530 !important;
+            color: white !important;
+        }
+        
+        /* 加号键特殊样式 - 高度增加46px */
+        .keyboard-key.numpadadd-key {
+            height: 91px !important;
+        }
+        
+        /* 数字0键特殊样式 - 宽度增加46px */
+        .keyboard-key.numpad0-key {
+            width: 91px !important;
+        }
+        
+        /* 回车键特殊样式 - 高度增加46px */
+        .keyboard-key.numpadenter-key {
+            height: 91px !important;
+        }
+        
+        /* 小键盘区域按键字体加大（除了回车键） */
+        .keyboard-key[data-key="NumLock"],
+        .keyboard-key[data-key="NumpadDivide"],
+        .keyboard-key[data-key="NumpadMultiply"],
+        .keyboard-key[data-key="Numpad7"],
+        .keyboard-key[data-key="Numpad8"],
+        .keyboard-key[data-key="Numpad9"],
+        .keyboard-key[data-key="NumpadAdd"],
+        .keyboard-key[data-key="Numpad4"],
+        .keyboard-key[data-key="Numpad5"],
+        .keyboard-key[data-key="Numpad6"],
+        .keyboard-key[data-key="Numpad1"],
+        .keyboard-key[data-key="Numpad2"],
+        .keyboard-key[data-key="Numpad3"],
+        .keyboard-key[data-key="Numpad0"] {
+            font-size: 16px !important;
+        }
+        
+        /* 减号键和小数点键字体特别加大 */
+        .keyboard-key[data-key="NumpadSubtract"],
+        .keyboard-key[data-key="NumpadDecimal"] {
+            font-size: 18px !important;
+        }
+        
+        /* 双重符号按键的两行显示样式 */
+        .keyboard-key .key-primary {
+            font-size: 16px !important;
+            font-weight: bold;
+            line-height: 1;
+            margin-bottom: 3px;
+        }
+        
+        .keyboard-key .key-secondary {
+            font-size: 12px !important;
+            line-height: 1;
+            margin-top: 3px;
+        }
+        
+        /* 双重符号按键容器样式 */
+        .keyboard-key {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 8px 4px;
+        }
+        
+        /* 左边键盘区域（主键盘区）数字、字母、符号按键字体加大（排除完整单词按键） */
+        .keyboard-key[data-key="Backquote"],
+        .keyboard-key[data-key="Digit1"],
+        .keyboard-key[data-key="Digit2"],
+        .keyboard-key[data-key="Digit3"],
+        .keyboard-key[data-key="Digit4"],
+        .keyboard-key[data-key="Digit5"],
+        .keyboard-key[data-key="Digit6"],
+        .keyboard-key[data-key="Digit7"],
+        .keyboard-key[data-key="Digit8"],
+        .keyboard-key[data-key="Digit9"],
+        .keyboard-key[data-key="Digit0"],
+        .keyboard-key[data-key="Minus"],
+        .keyboard-key[data-key="Equal"],
+        .keyboard-key[data-key="KeyQ"],
+        .keyboard-key[data-key="KeyW"],
+        .keyboard-key[data-key="KeyE"],
+        .keyboard-key[data-key="KeyR"],
+        .keyboard-key[data-key="KeyT"],
+        .keyboard-key[data-key="KeyY"],
+        .keyboard-key[data-key="KeyU"],
+        .keyboard-key[data-key="KeyI"],
+        .keyboard-key[data-key="KeyO"],
+        .keyboard-key[data-key="KeyP"],
+        .keyboard-key[data-key="BracketLeft"],
+        .keyboard-key[data-key="BracketRight"],
+        .keyboard-key[data-key="Backslash"],
+        .keyboard-key[data-key="KeyA"],
+        .keyboard-key[data-key="KeyS"],
+        .keyboard-key[data-key="KeyD"],
+        .keyboard-key[data-key="KeyF"],
+        .keyboard-key[data-key="KeyG"],
+        .keyboard-key[data-key="KeyH"],
+        .keyboard-key[data-key="KeyJ"],
+        .keyboard-key[data-key="KeyK"],
+        .keyboard-key[data-key="KeyL"],
+        .keyboard-key[data-key="Semicolon"],
+        .keyboard-key[data-key="Quote"],
+        .keyboard-key[data-key="KeyZ"],
+        .keyboard-key[data-key="KeyX"],
+        .keyboard-key[data-key="KeyC"],
+        .keyboard-key[data-key="KeyV"],
+        .keyboard-key[data-key="KeyB"],
+        .keyboard-key[data-key="KeyN"],
+        .keyboard-key[data-key="KeyM"],
+        .keyboard-key[data-key="Comma"],
+        .keyboard-key[data-key="Period"],
+        .keyboard-key[data-key="Slash"] {
+            font-size: 16px !important;
+        }
+        
+        /* 方向键特殊样式 - 修改背景为橙色 */
+        .keyboard-key.arrow-key {
+            background: #ff7f0e !important;
+            border-color: #d46a0c !important;
+            color: white !important;
+        }
+        
+        .keyboard-key.selected {
+            border: 4px solid #ff6b6b;
+            box-shadow: 
+                0 0 20px rgba(255, 107, 107, 0.8),
+                0 0 40px rgba(255, 107, 107, 0.4),
+                inset 0 0 15px rgba(255, 107, 107, 0.3);
+            z-index: 100;
+            transform: scale(1.05);
+            animation: selected-pulse 2s infinite;
+            filter: brightness(1.1);
+        }
+        
+        @keyframes selected-pulse {
+            0% { 
+                box-shadow: 
+                    0 0 20px rgba(255, 107, 107, 0.8),
+                    0 0 40px rgba(255, 107, 107, 0.4),
+                    inset 0 0 15px rgba(255, 107, 107, 0.3);
+                transform: scale(1.05);
+            }
+            50% { 
+                box-shadow: 
+                    0 0 30px rgba(255, 107, 107, 1),
+                    0 0 60px rgba(255, 107, 107, 0.6),
+                    inset 0 0 25px rgba(255, 107, 107, 0.5);
+                transform: scale(1.08);
+            }
+            100% { 
+                box-shadow: 
+                    0 0 20px rgba(255, 107, 107, 0.8),
+                    0 0 40px rgba(255, 107, 107, 0.4),
+                    inset 0 0 15px rgba(255, 107, 107, 0.3);
+                transform: scale(1.05);
+            }
+        }
+        
+        .keyboard-key.dragging {
+            opacity: 0.8;
+            z-index: 1000;
+            transform: scale(1.1);
+        }
+
+        .grid-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 999;
+            display: none;
+        }
+        
+        .grid-line {
+            transition: all 0.2s ease;
+            pointer-events: auto;
+        }
+        
+        .grid-line:hover {
+            background: rgba(255, 165, 0, 0.3) !important;
+            box-shadow: 0 0 5px rgba(255, 165, 0, 0.5);
+        }
+        
+        .vertical-grid-line {
+            border-left: 1px dashed rgba(0, 120, 215, 0.4);
+            background: rgba(0, 120, 215, 0.1);
+        }
+        
+        .horizontal-grid-line {
+            border-top: 1px dashed rgba(0, 120, 215, 0.4);
+            background: rgba(0, 120, 215, 0.1);
+        }
+        
+        .keyboard-key:hover {
+            background: #1e90ff !important;
+            filter: brightness(1.1);
+        }
+        
+        /* 按键按下时的鲜艳粉色背景 */
+        .keyboard-key.key-pressed {
+            background: #FF69B4 !important;
+            border-color: #FFFFFF !important;
+            transform: translateY(2px);
+            box-shadow: 
+                0 1px 2px rgba(0, 0, 0, 0.3),
+                inset 0 2px 3px rgba(0, 0, 0, 0.4);
+            filter: brightness(1.05);
+        }
+        
+        /* 特殊按键在点击时也显示鲜艳粉色背景 */
+        .keyboard-key.key-pressed.key-orange,
+        .keyboard-key.key-pressed.key-green,
+        .keyboard-key.key-pressed.key-red,
+        .keyboard-key.key-pressed.key-purple,
+        .keyboard-key.key-pressed.key-blue,
+        .keyboard-key.key-pressed.key-gray {
+            background: #FF69B4 !important;
+            border-color: #FFFFFF !important;
+        }
+        
+        .key-orange { background: #ff7f0e !important; border-color: #d46a0c !important; }
+        .key-green { background: #2ca02c !important; border-color: #258525 !important; }
+        .key-red { background: #d62728 !important; border-color: #b82223 !important; }
+        .key-purple { background: #9467bd !important; border-color: #7d5aa0 !important; }
+        .key-blue { background: #1f77b4 !important; border-color: #1a6499 !important; }
+        .key-gray { background: #aec7e8 !important; border-color: #8da9cc !important; color: #333 !important; }
+        .key-light-purple { background: #a1a8eb !important; border-color: #8a90d4 !important; color: white !important; }
+        .key-slate-blue { background: #6a5acd !important; border-color: #5a4ab9 !important; color: white !important; }
+        .key-turquoise { background: #4a9a9c !important; border-color: #3e8284 !important; color: white !important; }
+        
+        .keyboard-spacer {
+            width: 45px;
+            height: 45px;
+            margin: 4px;
+            background: transparent;
+            border: 1px dashed #ccc;
+        }
+        
+        .data-panel {
+            flex: 0 0 400px;
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            max-height: 600px;
+            overflow-y: auto;
+        }
+        
+        .data-panel h3 {
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .position-data {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            max-height: 120px;
+            overflow-y: auto;
+            padding: 10px;
+            background: white;
+            border-radius: 4px;
+            border: 1px solid #dee2e6;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+        }
+        
+        .coordinate-item {
+            display: inline-block;
+            margin: 2px;
+            padding: 6px 10px;
+            background: #e9ecef;
+            border-radius: 4px;
+            border: 1px solid #ced4da;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            color: #495057;
+            white-space: nowrap;
+        }
+        
+        .instructions {
+            background: #e7f3ff;
+            border: 1px solid #b3d9ff;
+            border-radius: 5px;
+            padding: 15px;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+        
+        .instructions h4 {
+            margin-bottom: 10px;
+            color: #0066cc;
+        }
+        
+        .instructions ul {
+            margin-left: 20px;
+        }
+        
+        .instructions li {
+            margin-bottom: 5px;
+        }
+        
+        .grid-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .grid-cell {
+            position: absolute;
+            border: 1px dashed rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        /* 键盘测试功能样式 */
+        .virtual-keyboard {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #2c3e50;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            z-index: 10000;
+            max-width: 90vw;
+            max-height: 90vh;
+            overflow: auto;
+        }
+        
+        .keyboard-test-container {
+            display: grid;
+            grid-template-rows: repeat(6, 1fr);
+            gap: 4px;
+            margin-bottom: 20px;
+        }
+        
+        .key-row {
+            display: flex;
+            gap: 4px;
+            margin-bottom: 4px;
+        }
+        
+        .virtual-key {
+            min-width: 40px;
+            height: 40px;
+            background: #34495e;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 5px;
+            font-size: 12px;
+            font-weight: bold;
+            cursor: default;
+            user-select: none;
+            transition: all 0.1s ease;
+        }
+        
+        .virtual-key.key-pressed {
+            background: #ff6b6b !important;
+            transform: scale(0.95);
+            box-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
+        }
+        
+        /* 特殊键样式 */
+        .virtual-key[data-key="shift"],
+        .virtual-key[data-key="ctrl"],
+        .virtual-key[data-key="alt"],
+        .virtual-key[data-key="capslock"] {
+            background: #3498db !important;
+            min-width: 60px !important;
+        }
+        
+        .virtual-key[data-key="space"] {
+            background: #95a5a6 !important;
+            min-width: 200px !important;
+        }
+        
+        .virtual-key[data-key="enter"] {
+            background: #27ae60 !important;
+            min-width: 80px !important;
+        }
+        
+        .virtual-key[data-key="backspace"] {
+            background: #e74c3c !important;
+            min-width: 80px !important;
+        }
+        
+        .virtual-key[data-key="esc"],
+        .virtual-key[data-key="tab"] {
+            background: #9b59b6 !important;
+            min-width: 60px !important;
+        }
+        
+        .virtual-key:hover {
+            filter: brightness(1.2);
+        }

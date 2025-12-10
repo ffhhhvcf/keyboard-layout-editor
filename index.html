@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>多功能键盘测试与布局编辑器</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>多功能键盘测试与布局编辑器</h1>
+            <p>支持键盘功能测试、按键布局自定义、实时坐标调整和个性化样式设置的一体化工具（108键标准布局）</p>
+            <div class="controls">
+                <button class="btn btn-primary" onclick="resetLayout()">重置布局</button>
+                <button class="btn btn-warning" onclick="showGrid()">显示/隐藏网格</button>
+                <button class="btn btn-info" onclick="arrangeByCoordinates()">按坐标排列</button>
+                <button class="btn btn-secondary" onclick="toggleAdvancedMenu()">高级设置</button>
+            </div>
+        </div>
+        
+        <!-- 高级菜单栏 -->
+        <div class="advanced-menu" id="advancedMenu" style="display: none;">
+            <div class="menu-header" style="position: relative;">
+                <h3>高级设置</h3>
+                <button class="btn btn-close" onclick="toggleAdvancedMenu()" style="position: absolute; top: 10px; right: 10px; background: #e74c3c; color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">关闭</button>
+            </div>
+            <div class="menu-section">
+                <h3>按键大小设置</h3>
+                <div class="size-controls">
+                    <label>宽度: <input type="number" id="keyWidth" value="45" oninput="previewKeySize()">px</label>
+                    <label>高度: <input type="number" id="keyHeight" value="45" oninput="previewKeySize()">px</label>
+                    <button class="btn btn-small" onclick="applyKeySize()">应用尺寸</button>
+                    <button class="btn btn-small" onclick="applySizeToAll()">应用到所有</button>
+                    <button class="btn btn-small" onclick="resetKeySize()" style="background: #ff9800; color: white;">重置尺寸</button>
+                </div>
+            </div>
+            
+            <div class="menu-section">
+                <h3>按键间距设置</h3>
+                <div class="spacing-controls">
+                    <label>上下间距: <input type="number" id="verticalSpacing" value="2" oninput="previewSpacing()">px</label>
+                    <label>左右间距: <input type="number" id="horizontalSpacing" value="2" oninput="previewSpacing()">px</label>
+                    <button class="btn btn-small" onclick="applySpacing()">应用间距</button>
+                    <button class="btn btn-small" onclick="applySpacingToAll()">应用到所有</button>
+                    <button class="btn btn-small" onclick="resetSpacing()" style="background: #4caf50; color: white;">重置间距</button>
+                </div>
+            </div>
+            
+            <div class="menu-section">
+                <h3>颜色自定义</h3>
+                <div class="color-controls">
+                    <div class="color-group">
+                        <label>默认背景色: <input type="color" id="defaultBgColor" value="#2c3e50"></label>
+                        <label>悬停颜色: <input type="color" id="hoverColor" value="#1e90ff"></label>
+                        <label>点击颜色: <input type="color" id="clickColor" value="#FF69B4"></label>
+                    </div>
+                    <div class="color-group">
+                        <button class="btn btn-small" onclick="applyColors()">应用颜色</button>
+                        <button class="btn btn-small" onclick="applyColorsToAll()">应用到所有</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="menu-section">
+                <h3>批量操作</h3>
+                <div class="batch-controls">
+                    <button class="btn btn-small" onclick="batchChangeColor()">批量更改颜色</button>
+                    <button class="btn btn-small" onclick="batchResetPositions()">批量重置位置</button>
+                    <button class="btn btn-small" onclick="batchApplyStyle()">批量应用样式</button>
+                </div>
+            </div>
+            
+            <div class="menu-section">
+                <h3>坐标布局生成器</h3>
+                <div class="coordinate-controls">
+                    <textarea id="customCoordinates" placeholder="支持两种格式：
+1. 简单格式（每行一个坐标）：
+   (100, 50)
+   (150, 50)
+   (200, 50)
+
+2. JSON格式（完整键盘布局）：
+   {
+     "keyPositions": {
+       "Escape": {"left": 118, "top": 94},
+       "F1": {"left": 212, "top": 94}
+     }
+   }" rows="4"></textarea>
+                    <button class="btn btn-small" onclick="generateCustomLayout()">生成布局</button>
+                    <button class="btn btn-small" onclick="exportCustomLayout()">导出布局</button>
+                    <button class="btn btn-small btn-success" onclick="exportData()">复制当前布局坐标</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="editor-area">
+            <div class="keyboard-container" id="keyboardContainer">
+                <!-- 键盘布局将通过JavaScript动态生成 -->
+            </div>
+            
+            <div class="data-panel" style="display: none;">
+                <div class="coordinate-display" style="display: none;">
+                    <h3>按键位置数据</h3>
+                    <div class="position-data" id="positionData">
+                        拖动按键后，这里会显示每个按键的精确位置数据
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
