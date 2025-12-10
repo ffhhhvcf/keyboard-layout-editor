@@ -1,4 +1,5 @@
 ﻿# 多功能键盘测试与布局编辑器
+<img width="2292" height="1104" alt="845271f4-9d98-4196-9da9-2553822ad5b4" src="https://github.com/user-attachments/assets/1e785460-a7a4-4f3c-a93f-c369c1a413ec" />
 
 一个功能完整、交互友好的键盘布局编辑工具，支持108键标准键盘布局的自定义、测试和导出。
 
